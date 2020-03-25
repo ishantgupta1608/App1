@@ -6,14 +6,15 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/save')
+@app.route('/save', methods = ['POST'])
 def save():
-    return "Save"
+    name = request.form['Name']
+    number = request.form['Number']
+    return name + ' : ' + str(number)
 
 @app.route('/hello')
 def hello():
     return "Hello"
 
 if __name__ == '__main__':
-    #a
     app.run()
