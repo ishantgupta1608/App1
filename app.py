@@ -14,13 +14,14 @@ def index():
 def save():
     name = request.form['Name']
     number = request.form['Number']
-    #file = open(os.path.join("Data Files", name), 'a')
-    #file.append(str(number) + '\n')
-    return name + ' : ' + str(number)
+    file = open(os.path.join(app.root_path, 'Data Files', name), 'a')
+    file.write(str(number) + '\n')
+    file.close()
+    return name + ' : ' + open(os.path.join(app.root_path, 'Data Files', name), 'r').read()
 
 @app.route('/hello') 
-def hello():
-    return app.root_path
+def hello(): 
+    return str(os.listdir(app.root_path))
 
 if __name__ == '__main__':
     #print(os.path.join(app.instance_path, "Data Files", '1'))
