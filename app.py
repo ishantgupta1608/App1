@@ -21,7 +21,7 @@ def save():
 
 @app.route('/hello') 
 def hello(): 
-    return str(os.listdir(app.root_path))
+    return str(os.listdir(os.path.join(app.root_path, 'Data Files', name)))
 
 if __name__ == '__main__':
     #print(os.path.join(app.instance_path, "Data Files", '1'))
