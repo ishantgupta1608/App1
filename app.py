@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/save')
+def save():
+    return "Save"
+
 @app.route('/hello')
 def hello():
     return "Hello"
